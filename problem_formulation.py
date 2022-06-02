@@ -193,25 +193,27 @@ def get_model_for_problem_formulation(problem_formulation_id):
                           function=sum_over, kind=direction)]
 
     # Disaggregate over locations:
+    # Here has been added that also the expected annual damages, dike investment costs and expected number of deaths aggregated over the years
     elif problem_formulation_id == 3:
         outcomes = []
         
-        dikelist = ['A.4']
-        
-        for dike in dikelist:
-            variable_name = []
-            for e in ['Expected Annual Damage', 'Dike Investment Costs']:
-                variable_name.extend(['{}_{} {}'.format(dike, e, n)
-                                          for n in function.planning_steps])
+        for dike in function.dikelist:
             
-            outcomes.append(ScalarOutcome('{} Total Costs'.format(dike),
-                                          variable_name=[var for var in variable_name],
+            outcomes.append(ScalarOutcome('{}_Expected Annual Damage'.format(dike), 
+                                      variable_name=['{}_Expected Annual Damage {}'.format(dike, n
+                                                     ) for n in function.planning_steps],
                                           function=sum_over, kind=direction))
-
-            outcomes.append(ScalarOutcome('{}_Expected Number of Deaths'.format(dike),
-                                          variable_name=['{}_Expected Number of Deaths {}'.format(
-                                                  dike, n) for n in function.planning_steps],
+            
+            outcomes.append(ScalarOutcome('{}_Dike Investment Costs'.format(dike), 
+                                      variable_name=['{}_Dike Investment Costs {}'.format(dike, n
+                                                     ) for n in function.planning_steps],
                                           function=sum_over, kind=direction))
+            
+            outcomes.append(ScalarOutcome('{}_Expected Number of Deaths'.format(dike), 
+                                      variable_name=['{}_Expected Number of Deaths {}'.format(dike, n
+                                                     ) for n in function.planning_steps],
+                                          function=sum_over, kind=direction))
+            
 
         outcomes.append(ScalarOutcome('RfR Total Costs', 
                                       variable_name=['RfR Total Costs {}'.format(n
