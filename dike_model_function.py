@@ -288,5 +288,7 @@ class DikeNetwork(object):
             data.update({f'RfR Total Costs {s}': G.nodes[
                                 f'RfR_projects {s}']['cost'.format(s)]})
             data.update({f'Expected Evacuation Costs {s}': np.sum(EECosts)})
+            
+            data = {k:float(v) for k, v in data.items()}
 
         return data
