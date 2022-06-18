@@ -1,6 +1,6 @@
-# EPA1361 Group16
+# EPA1361 Group 16
 
-|Group Number |19|
+|Group Number |16|
 |---|---|
 |Daan Bos| 4477073 |
 |Annemieke Brouwer| 4575687|
@@ -45,6 +45,6 @@ All of the analysis files use the RfR model and all its dependencies. The files 
 * [ouput_data](https://github.com/WillemijnTutu/EPA1361_group16/blob/main/output_data): Folder with all output data creates through the analysis
 * [figures](https://github.com/WillemijnTutu/EPA1361_group16/blob/main/figures): Folder with all the figures creates through the analysis
 
-## Dependencieshttps:
+## Dependencies
 The dependencies necessary to execute the code can be found in the [requirements](https://github.com/WillemijnTutu/EPA1361_group16/blob/main/requirements) file in the repository.
 Next to this all of the analysis is dependent on the EMAworkbench.
